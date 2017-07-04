@@ -24,6 +24,6 @@
     
 ### 运行效果：
     
-![效果展示](http://web-site-files.ashshen.cc/gitHub/online-reader-preview.gif)
+![效果展示](https://web-site-files.ashshen.cc/gitHub/online-reader-preview.gif)
     
     
