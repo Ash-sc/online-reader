@@ -23,7 +23,7 @@ export default class ArticleList extends React.Component {
             onClick={() => this.listGoLeft(i)}
           >
             <img
-              src="http://og1lwk98i.bkt.clouddn.com/appBackground.jpg"
+              src="http://web-site-files.ashshen.cc/online-reader/bg.jpg"
               alt={item.articleName}
               className="article-image"
             />
