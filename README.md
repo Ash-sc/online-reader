@@ -30,6 +30,8 @@
     
 electron可以将web网页打包成可在PC端运行的软件，[关于electron。](https://electron.atom.io/)
     
+首先你需要切换分支到electron。
+    
 在本地运行electron: 你需要修改`./src/js/utils/api/api.js`中`API_ROOT`的值为`http://localhost:4396`。然后：
 ````
     $ npm install
