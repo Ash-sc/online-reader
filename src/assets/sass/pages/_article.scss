@@ -1,0 +1,316 @@
+.article-body {
+  width: 100%;
+  min-height: calc(100vh - 65px);
+  position: relative;
+  top: 64px;
+  transition: background-color .5s;
+
+  // 搜索栏
+  .search-section {
+
+    .search-component{
+      margin-left: 25vw;
+      margin-top: calc(33.33333vh - 90px);
+      width: calc(50vw - 50px);
+      height: 50px;
+      padding-right: 50px;
+      border: none;
+      line-height: 50px;
+      text-indent: 20px;
+      font-size: 16px;
+      background: #fff;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 25px 0 rgba(0, 0, 0, 0.1);
+      outline: none;
+      transition: margin-top .3s, margin-left .3s, opacity .3s;
+
+      &.search-component-for-charter {
+        margin-top: 50px;
+        margin-left: 15px;
+        width: calc(40vw - 80px);
+        opacity: 1;
+      }
+      &.search-component-for-content {
+        opacity: 0;
+        width: 0;
+        margin-top: 50px;
+        margin-left: 15px;
+      }
+
+    }
+
+    .search-btn {
+      position: relative;
+      top: 2px;
+      right: 51px;
+      width: 50px;
+      height: 50px;
+      background: #fff;
+      border: none;
+      font-size: 24px;
+      color: #616161;
+      cursor: pointer;
+      outline: none;
+    }
+
+  }
+
+  // 小说列表
+  .article-list-body {
+    width: 50vw;
+    position: absolute;
+    margin-left: 25vw;
+    margin-right: 15px;
+    margin-top: 50px;
+    max-height: 1015px;
+    overflow-y: auto;
+    transition: transform .3s;
+    display: inline-block;
+    background-color: rgba(40, 173, 239, 0.08);
+
+    &.article-list-for-charter {
+      width: calc(40vw - 30px);
+      transform: translate(calc(-25vw + 10px), 0);
+    }
+    &.article-list-for-content {
+      width: 0;
+      transform: translate(-50vw, 0);
+    }
+
+    .article-item {
+      position: relative;
+      height: 150px;
+      padding: 10px;
+      background: rgba(40, 173, 239, 0.08);
+      margin-bottom: 5px;
+
+      .article-image {
+        height: 100%;
+        width: 105px;
+      }
+
+      > p {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        width: calc(100% - 150px);
+        text-indent: 20px;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 4px;
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-break: break-all;
+        color: rgba(35, 168, 235, 0.96);
+        cursor: pointer;
+      }
+
+      .article-author {
+        top: 40px;
+      }
+
+      .article-latest-charter {
+        top: 80px;
+      }
+
+      .article-update-time {
+        top: 120px;
+      }
+
+      &.active-item {
+        background-color: rgba(54, 188, 255, 0.26);
+        > p {
+          color: rgba(225, 79, 144, 0.96);
+        }
+      }
+
+    }
+
+    .article-item:hover {
+      background-color: rgba(54, 188, 255, 0.26);
+      > p {
+        color: rgba(225, 79, 144, 0.96);
+      }
+    }
+
+  }
+
+  // 章节列表
+  .charter-list-body {
+    width: calc(60vw - 30px);
+    margin-left: 15px;
+    margin-top: 50px;
+    padding-top: 15px;
+    max-height: 1000px;
+    overflow-y: auto;
+    display: inline-block;
+    vertical-align: top;
+    min-height: calc(100vh - 231px);
+    background-color: rgba(40, 173, 239, 0.08);
+    animation: delay-show .3s linear both;
+    transition: opacity .3s .3s, transform .3s;
+    left: 40vw;
+    position: absolute;
+
+    &.charter-list-for-search, &.charter-list-for-article {
+      opacity: 0;
+    }
+
+    &.charter-list-for-charter {
+      opacity: 1;
+    }
+
+    &.charter-list-for-content {
+      opacity: 1;
+      width: 200px;
+      margin-right: 15px;
+      transform: translate(-40vw, 0);
+      .charter-item {
+        width: calc(100% - 45px);
+      }
+    }
+
+    .charter-item {
+      display: inline-block;
+      width: calc(33.33333333% - 45px);
+      height: 40px;
+      line-height: 40px;
+      text-indent: 15px;
+      margin: 0 15px 15px;
+      padding-right: 15px;
+      background-color: rgb(142, 206, 238);
+      color: #ffffff;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      word-break: break-all;
+      animation: show .3s linear both;
+      cursor: pointer;
+      transition: background-color .2s .05s;
+
+      &.charter-item-active {
+        background-color: rgb(40, 173, 239)!important;
+      }
+    }
+
+    .charter-item:hover {
+      background-color: rgba(40, 173, 239, 0.8);
+    }
+
+  }
+
+  .article-content-body {
+    animation: show .3s linear both;
+
+    > div {
+      position: absolute;
+      margin-top: 50px;
+      left: 245px;
+      right: 30px;
+      font-size: 18px;
+      border: 2px solid rgba(40, 173, 239, 0.8);
+      padding: 15px;
+      min-height: calc(100vh - 260px);
+      animation: show 0.5s linear both;
+    }
+  }
+
+  .tools-body {
+    position: fixed;
+    right: 15px;
+    bottom: 40px;
+    height: 40px;
+    width: 40px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 25px 0 rgba(0, 0, 0, 0.1);
+    background-color: #7ad2ff;
+    text-align: center;
+    color: #fff;
+    transition: height .3s;
+
+    &.tools-body-active {
+      height: 240px;
+    }
+
+    // 工具条选项
+    > span {
+      display: block;
+      position: relative;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      cursor: pointer;
+      background-color: #7ad2ff;
+      transition: background-color .2s .05s;
+      user-select: none;
+
+      &.active-span {
+        background-color: #36bbff;
+      }
+
+      &.icon-qrcode {
+
+        > canvas {
+          position: absolute;
+          left: -128px;
+          top: -88px;
+          animation: show .3s linear both;
+          user-select: none;
+        }
+
+      }
+
+      // 背景颜色设置部分
+      .bg-setting-body {
+        position: absolute;
+        left: -240px;
+        top: 0;
+        width: 240px;
+        height: 40px;
+        background-color: #36bbff;
+        border-radius: 5px 0 0 5px;
+        transition: opacity .3s;
+
+        &.show-bg-setting {
+          opacity: 1;
+        }
+
+        &.hide-bg-setting {
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        > span {
+          display: inline-block;
+          position: relative;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          cursor: pointer;
+          background-color: #36bbff;
+          transition: background-color .2s .05s;
+          user-select: none;
+
+          &.active-span {
+            background-color: #7ad2ff;
+          }
+        }
+
+        > span:first-child {
+          border-radius: 5px 0 0 5px;
+        }
+
+        > span:hover {
+          background-color: #7ad2ff;
+        }
+      }
+    }
+
+    > span:hover {
+      background-color: #36bbff;
+    }
+  }
+
+}

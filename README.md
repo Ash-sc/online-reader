@@ -1,2 +1,3 @@
-# server-for-NR
-server for react native application
+# online-reader
+use Node.js and React.
+

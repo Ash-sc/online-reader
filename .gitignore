@@ -1,5 +1,11 @@
-.idea/
 
-.vscode/
+.vscode
+.DS_Store
+.idea
+.project
 
-node_modules/
+*.iml
+
+node_modules
+
+.DS_Store?
