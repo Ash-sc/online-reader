@@ -24,7 +24,7 @@
     
 ### 运行效果：
     
-[https://web-site-files.ashshen.cc/gitHub/online-reader-preview.gif](https://web-site-files.ashshen.cc/gitHub/online-reader-preview.gif)
+[http://web-site-files.ashshen.cc/gitHub/online-reader-preview.gif](http://web-site-files.ashshen.cc/gitHub/online-reader-preview.gif)
     
 ### electron：
     
