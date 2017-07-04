@@ -4,6 +4,7 @@
 .idea
 .project
 /logs
+/public
 
 *.iml
 
