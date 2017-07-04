@@ -6,7 +6,7 @@ let WebpackDevServer = require('webpack-dev-server');
 let Dashboard = require('webpack-dashboard');
 let DashboardPlugin = require('webpack-dashboard/plugin');
 
-let api_server_url = 'http://ashshen.cc:4396/';
+let api_server_url = 'http://localhost:4396/';
 
 
 let compiler = webpack(config);
