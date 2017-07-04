@@ -11,7 +11,7 @@ const SRC = `${PROJECT_ROOT}/src`;
 module.exports = {
   context: path.join(__dirname, `${SRC}`),
   entry: ['babel-polyfill', `${SRC}/js/index.jsx`],
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   output: {
     filename: 'bundle.js',
     chunkFilename: '[id].[name].chunk.js',
