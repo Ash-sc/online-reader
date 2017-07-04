@@ -1,0 +1,38 @@
+{
+  "extends": "airbnb",
+  "eslint.autoFixOnSave": true,
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "globals": {
+    "d3": true
+  },
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": "off", // TODO: remove this rule
+    "import/imports-first": "off", // TODO: remove this rule
+    "jsx-a11y/no-static-element-interactions": "off", // TODO: remove this rule
+    "jsx-a11y/label-has-for": "off", // TODO: remove this rule
+    "jsx-a11y/href-no-hash": "off", // TODO: remove this rule
+    "no-underscore-dangle": "off",
+    "no-return-assign": "off", // TODO: remove this rule
+    "class-methods-use-this": "off", // TODO: remove this rule
+    "max-len": "off",
+    "react/prop-types": "off", // TODO: remove this rule
+    "react/self-closing-comp": "off",
+    "react/prefer-stateless-function": "off",// TODO: remove this rule
+    "react/no-string-refs": "off",
+    "prefer-const":"off",
+    "no-param-reassign":"off",
+    "no-nested-ternary":"off"
+//    "no-param-reassign": "off"
+  }
+}

@@ -1,0 +1,46 @@
+.top-bar {
+  position: absolute;
+  z-index: 1001;
+  height: 64px;
+  width: 100%;
+  color: #000;
+  background: #f5f5f5;
+  box-shadow: 0 1px 4px 0 rgba(40, 173, 239, 0.2), 0 35px 35px 0 rgba(40, 173, 239, 0.1);
+  font-size: 20px;
+  line-height: 64px;
+  .back-to-index {
+    font-family: 'zapfino'!important;
+    color: #000;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    padding-left: 10px;
+  }
+  .icon-face {
+    font-size: 40px;
+    line-height: 64px;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+  }
+  .icon-face:before {
+    content: "\e902";
+  }
+  .icon-face:hover:before {
+    content: "\e901";
+    // -webkit-animation: show 1.5s linear both;
+    // -moz-animation: show 1.5s linear both;
+    // animation: show 1.5s linear both;
+  }
+  .user-avatar {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    border: 1px solid;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    top: 17px;
+    cursor: pointer;
+  }
+}

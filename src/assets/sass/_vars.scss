@@ -1,0 +1,118 @@
+//////////////////////////////////////
+// Colors
+//////////////////////////////////////
+
+$black         : #000;
+$white         : #fff;
+$lightestgray  : #929ca4;
+$lightgray     : #B4C0CB;
+$gray          : #505466;
+$tablegray     : #2A303C;
+$darkgray      : #1F2532;
+$darkergray    : #1A1F2A;
+$darkestgray   : #11151D;
+$selectgray    : #353B46;
+
+$bg            : $darkergray;
+$text          : $gray;
+$link          : $lightgray;
+
+$blue          : #03C4DD;
+$blue-2        : desaturate($blue, 15%);
+$blue-3        : desaturate($blue, 30%);
+$blue-4        : desaturate($blue, 45%);
+$bluelink      : #04BDDC;
+$blue-status   : #0E7F96;
+$blue-border   : rgba(14, 127, 150, 0.25);
+
+$green         : #05E18C;
+$light-green   : desaturate($green, 45%);
+
+$yellow        : #F5A524;
+$yellowish     : #CEC11C;
+
+$red           : #ED2D5C;
+$purple        : #720FC8;
+
+$orange        : #f0ad4e;
+$darkred       : #ba0c0c;
+
+$logo-left     : #53A0FD;
+$logo-right    : #2343AE;
+
+$brand-primary : #777;
+
+
+$repayment-1   : $light-green;      
+$repayment-2   : $yellowish;
+$repayment-3   : $yellow;
+$repayment-4   : $blue-4;
+$repayment-5   : $blue-3;
+$repayment-6   : $blue-2;
+$repayment-7   : $blue;
+$repayment-8   : $green;
+$repayment-9   : $red;
+$repayment-10  : $purple;
+
+
+///////////////////
+// Fonts
+///////////////////
+
+$font-light  : 'montserrat-light-webfont'  , 'STHeiti', '华文黑体', 'SimHei', '黑体', 'microsoft yahei', '微软雅黑', sans-serif;
+$font-normal : 'montserrat-regular-webfont', 'STHeiti', '华文黑体', 'SimHei', '黑体', 'microsoft yahei', '微软雅黑', sans-serif;
+$font-bold   : 'montserrat-bold-webfont'   , 'STHeiti', '华文黑体', 'SimHei', '黑体', 'microsoft yahei', '微软雅黑', sans-serif;
+
+// Ugly Fonts
+// $font-light  : 'montserrat-light-webfont'  , 'SimHei', '黑体', 'microsoft yahei', '微软雅黑', 'STHeiti', '华文黑体', sans-serif;
+// $font-normal : 'montserrat-regular-webfont', 'SimHei', '黑体', 'microsoft yahei', '微软雅黑', 'STHeiti', '华文黑体', sans-serif;
+// $font-bold   : 'montserrat-bold-webfont'   , 'SimHei', '黑体', 'microsoft yahei', '微软雅黑', 'STHeiti', '华文黑体', sans-serif;
+
+
+
+//////////////////////////////////////
+// Font Sizes
+//////////////////////////////////////
+
+$f-size-xs : 13px;
+$f-size-s  : 14px;
+$f-size    : 16px;
+$f-size-xl : 36px;
+
+$f-size-title: $f-size-xl;
+
+$brand-primary:#777;
+
+$base-url: '../' !default;
+$base-font-url: '../fonts' !default;
+$base-image-url: '../images' !default;
+
+//////////////////////////////////////
+// react-dates
+//////////////////////////////////////
+
+$react-dates-width-input: 130px !default;
+$react-dates-width-arrow: 24px !default;
+$react-dates-width-tooltip-arrow: 20px !default;
+$react-dates-width-day-picker: 300px !default;
+
+$react-dates-color-primary: $darkgray !default;
+$react-dates-color-primary-dark: $darkergray !default;
+$react-dates-color-primary-shade-1: $lightgray !default;
+$react-dates-color-primary-shade-2: $selectgray !default;
+$react-dates-color-primary-shade-3: darken($darkergray, 30%) !default;
+$react-dates-color-primary-shade-4: $darkestgray !default;
+$react-dates-color-secondary: $gray !default;
+$react-dates-color-white: $black !default;
+$react-dates-color-gray: $gray !default;
+$react-dates-color-gray-dark: $lightgray !default;
+$react-dates-color-gray-light: darken($lightgray, 17.8%) !default;   // #82888a
+$react-dates-color-gray-lighter: darken($lightgray, 45%) !default;     // #cacccd
+
+$react-dates-color-border: transparent !default;
+$react-dates-color-border-light: transparent !default;
+$react-dates-color-border-medium: transparent !default;
+$react-dates-color-placeholder-text: $gray !default;
+$react-dates-color-text: $lightgray !default;
+$react-dates-color-text-focus: $lightgray !default;
+$react-dates-color-focus: $lightgray !default;

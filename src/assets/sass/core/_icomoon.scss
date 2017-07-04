@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('http://web-site-files.ashshen.cc/fonts/icomoon.eot');
+  src:  url('http://web-site-files.ashshen.cc/fonts/icomoon.ttf') format('truetype'),
+  url('http://web-site-files.ashshen.cc/fonts/icomoon.woff') format('woff'),
+  url('http://web-site-files.ashshen.cc/fonts/icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"], [class="icon"]:before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-smiling-face:before {
+  content: "\e901";
+}
+.icon-neutral-face:before {
+  content: "\e902";
+}
+.icon-search:before {
+  content: "\e92a";
+}
+.icon-envelop:before {
+  content: "\e945";
+}
+.icon-compass:before {
+  content: "\e949";
+}
+.icon-mobile:before {
+  content: "\e958";
+}
+.icon-user:before {
+  content: "\e971";
+}
+.icon-key:before {
+  content: "\e98d";
+}
+.icon-plus:before {
+  content: "\ea0a";
+}
+.icon-cancel-circle:before {
+  content: "\ea0d";
+}
+.icon-enter:before {
+  content: "\ea13";
+}
+.icon-exit:before {
+  content: "\ea14";
+}
+.icon-square-rounded:before {
+  content: "\e92d";
+}
+.icon-cross2:before {
+  content: "\ea0f";
+}
+.icon-fullscreen-exit:before {
+  content: "\e900";
+}
+.icon-qrcode:before {
+  content: "\e938";
+}
+.icon-undo2:before {
+  content: "\e967";
+}
+.icon-redo2:before {
+  content: "\e968";
+}
+.icon-enlarge:before {
+  content: "\e989";
+}
+.icon-enlarge2:before {
+  content: "\e98b";
+}
+.icon-equalizer:before {
+  content: "\e992";
+}
+.icon-cog:before {
+  content: "\e994";
+}
+.icon-arrow-right:before {
+  content: "\ea34";
+}
+.icon-arrow-left:before {
+  content: "\ea38";
+}
+.icon-circle-right:before {
+  content: "\ea42";
+}
+.icon-circle-left:before {
+  content: "\ea44";
+}
+.icon-font:before {
+  content: "\ea5c";
+}

@@ -1,0 +1,11 @@
+
+.vscode
+.DS_Store
+.idea
+.project
+
+*.iml
+
+node_modules
+
+.DS_Store?
