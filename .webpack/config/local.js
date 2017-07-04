@@ -18,8 +18,13 @@ module.exports = {
   watchOptions: { poll: true },
   output: {
     filename: 'bundle.js',
+    chunkFilename: '[id].[name].chunk.js',
     publicPath: '/', //dev. bundle.js is served in memory
     path: __dirname + '/public/',  // local, when really generate a visible bundle.js inside build
+  },
+  externals: {
+    "moment": 'moment',
+    "lodash": '_',
   },
   module: {
     loaders: [{

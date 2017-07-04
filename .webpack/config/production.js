@@ -14,8 +14,13 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map',
   output: {
     filename: 'bundle.js',
+    chunkFilename: '[id].[name].chunk.js',
     publicPath: '/',
     path: 'public/', // for deployment
+  },
+  externals: {
+    "moment": 'moment',
+    "lodash": '_',
   },
   module: {
     loaders: [{
