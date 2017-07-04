@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Router, IndexRedirect, hashHistory } from 'react-router';
 
 function requireAuth(nextState, replace) {
-  console.log('auth required!');
+  // console.log('auth required!');
   if (0) {
     replace({
       pathname: '/',
@@ -11,7 +11,7 @@ function requireAuth(nextState, replace) {
   }
 }
 import App from 'components/_shared/App/App';
-import TopBar from 'components/_shared/TopBar/TopBar';
+// import TopBar from 'components/_shared/TopBar/TopBar';
 import loginPage from './Login/LoginPage';
 import IndexPage from './Index/Index';
 import ArticlePage from './Article/ArticlePage';
@@ -54,7 +54,7 @@ export default class RootRoute extends React.Component {
     return (
       <Router history={hashHistory}>
         <Route component={App}>
-          <Route path="/" component={TopBar} onEnter={requireAuth}>
+          <Route path="/" onEnter={requireAuth}>
             <IndexRedirect to="article" />
             <Route path="login" component={loginPage} />
             <Route path="index" component={IndexPage} />

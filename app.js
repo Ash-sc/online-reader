@@ -5,9 +5,13 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const http = require('http');
 const app = express();
+const path = require('path');
 
 // routers
 const articleRouter = require('./server/article/article');
+
+// server static files
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -22,6 +26,7 @@ app.use(function(req, res, next) {
 });
 
 // web router config
+app.use('/api/article', articleRouter);
 app.use('/article', articleRouter);
 
 // catch 404 and forward to error handler
