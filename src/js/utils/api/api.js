@@ -1,6 +1,6 @@
 import utils from '../utils';
 
-const API_ROOT = '/api';
+const API_ROOT = 'http://localhost:4396';
 
 function callApi(args) {
   let endpoint = args.endpoint;
