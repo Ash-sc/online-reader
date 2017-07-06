@@ -6,9 +6,13 @@ const bodyParser = require('body-parser');
 const http = require('http');
 const app = express();
 const path = require('path');
+const compression = require('compression');
 
 // routers
 const articleRouter = require('./server/article/article');
+
+//
+app.use(compression());
 
 // server static files
 app.use(express.static(path.join(__dirname, '/public')));
