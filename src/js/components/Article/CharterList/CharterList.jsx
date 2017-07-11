@@ -14,18 +14,25 @@ export default class CharterList extends React.Component {
   }
 
   viewContent(href, index) {
-    if (this.state.activeIndex !== index || this.props.viewType !== 'content') {
-      this.props.viewContent(href);
+    if (this.state.activeIndex !== index || this.props.reducer.viewType !== 'content') {
       this.setState({ activeIndex: index });
+      this.props.actions.changeViewType('content');
+      this.props.actions.getArticleContent(`${this.props.reducer.articleLink}${href}`);
     }
   }
 
   render() {
+    let viewType = this.props.reducer.viewType;
+    if (this.props.reducer.viewType === 'content') {
+      viewType = viewType.concat(this.props.reducer.toolSetting.fullScreen ? '-full-screen' : '');
+    }
     return (
-      <div className={`charter-list-body charter-list-for-${this.props.viewType}`}>
-        {this.props.data.map((item, i) =>
+      <div
+        className={`charter-list-body charter-list-for-${viewType}`}
+      >
+        {this.props.reducer.charterList.map((item, i) =>
           <div
-            className={`charter-item ${this.state.activeIndex === i && this.props.viewType === 'content' ? 'charter-item-active' : ''}`}
+            className={`charter-item ${this.state.activeIndex === i && this.props.reducer.viewType === 'content' ? 'charter-item-active' : ''}`}
             key={i}
             onClick={() => this.viewContent(item.href, i)}
           >

@@ -11,6 +11,9 @@ import {
   GET_CHARTER_CONTENT_REQUEST,
   GET_CHARTER_CONTENT_SUCCESS,
   GET_CHARTER_CONTENT_FAILURE,
+  CHANGE_VIEW_TYPE,
+  CHANGE_TOOL_SETTING,
+  SET_ARTICLE_LINK,
 } from 'constants/articleConstants';
 
 // Initial state
@@ -18,7 +21,13 @@ export const initialState = {
   status: 'ok',
   contentList: [],
   charterList: [],
-  articleContent: '',
+  articleLink: '', // 小说主页连接
+  articleContent: '', // 小说内容
+  viewType: 'search', // 视图类型
+  toolSetting: { // 小工具设置
+    bgColor: '#eef8fd',
+    fullScreen: false,
+  },
 };
 
 export default function reducer(state = initialState, action) {
@@ -45,6 +54,15 @@ export default function reducer(state = initialState, action) {
     }
     case GET_CHARTER_CONTENT_SUCCESS: {
       return { ...state, ...{ status: action.status, articleContent: action.data.content } };
+    }
+    case CHANGE_VIEW_TYPE: {
+      return { ...state, ...{ viewType: action.viewType } };
+    }
+    case CHANGE_TOOL_SETTING: {
+      return { ...state, ...{ toolSetting: { ...state.toolSetting, ...action.setting } } };
+    }
+    case SET_ARTICLE_LINK: {
+      return { ...state, ...{ articleLink: action.articleLink } };
     }
     default:
       return state;

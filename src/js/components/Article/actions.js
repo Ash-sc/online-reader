@@ -11,6 +11,9 @@ import {
   GET_CHARTER_CONTENT_REQUEST,
   GET_CHARTER_CONTENT_SUCCESS,
   GET_CHARTER_CONTENT_FAILURE,
+  CHANGE_VIEW_TYPE,
+  CHANGE_TOOL_SETTING,
+  SET_ARTICLE_LINK,
 } from 'constants/articleConstants';
 import articleApi from 'utils/api/articleApi';
 
@@ -47,5 +50,26 @@ export function getArticleContent(link) {
     ],
     callAPI: () => articleApi.getArticleContent(link),
     payload: {},
+  };
+}
+
+export function changeViewType(viewType = 'search') {
+  return {
+    type: CHANGE_VIEW_TYPE,
+    viewType,
+  };
+}
+
+export function changeToolSetting(setting) {
+  return {
+    type: CHANGE_TOOL_SETTING,
+    setting,
+  };
+}
+
+export function setArticleLink(articleLink) {
+  return {
+    type: SET_ARTICLE_LINK,
+    articleLink,
   };
 }
