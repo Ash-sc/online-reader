@@ -11,11 +11,12 @@ export default class ArticleList extends React.Component {
   }
 
   render() {
+    const { toolSetting } = this.props.reducer;
     return (
       <div className="article-content-body">
         <div
           ref="content-div"
-          className="article-content"
+          className={`article-content${toolSetting.fullScreen ? ' full-screen-content' : ''}`}
         />
       </div>
     );

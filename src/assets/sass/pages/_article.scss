@@ -8,6 +8,12 @@
 
   // 搜索栏
   .search-section {
+    > form {
+      transition: margin-top .3s .3s;
+      &.full-screen-content {
+        margin-top: -100px;
+      }
+    }
 
     .search-component{
       margin-left: 25vw;
@@ -149,7 +155,6 @@
     vertical-align: top;
     min-height: calc(100vh - 231px);
     background-color: rgba(40, 173, 239, 0.08);
-    animation: delay-show .3s linear both;
     transition: opacity .3s .3s, transform .3s;
     left: 40vw;
     position: absolute;
@@ -162,7 +167,7 @@
       opacity: 1;
     }
 
-    &.charter-list-for-content {
+    &.charter-list-for-content, &.charter-list-for-content-full-screen {
       z-index: 100;
       opacity: 1;
       width: 200px;
@@ -171,6 +176,10 @@
       .charter-item {
         width: calc(100% - 45px);
       }
+    }
+    &.charter-list-for-content-full-screen {
+      opacity: 0;
+      pointer-events: none;
     }
 
     .charter-item {
@@ -203,20 +212,23 @@
   }
 
   .article-content-body {
-    animation: show .3s linear both;
+    animation: show .5s linear both;
 
-    > div {
+    .article-content {
       //position: absolute;
       //margin-top: 50px;
       //left: 245px;
       //right: 30px;
-      margin: 50px 30px 0 245px;
-
+      margin: 50px 30px 30px 245px;
       font-size: 18px;
       border: 2px solid rgba(40, 173, 239, 0.8);
       padding: 15px;
       min-height: calc(100vh - 260px);
-      animation: show 0.5s linear both;
+      animation: show .5s linear both;
+      transition: margin .3s .3s;
+      &.full-screen-content {
+        margin: 30px;
+      }
     }
   }
 
