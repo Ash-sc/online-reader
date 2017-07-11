@@ -10,13 +10,16 @@ export default class ArticleList extends React.Component {
   }
   listGoLeft(index) {
     this.setState({ position: 'left', activeIndex: index });
-    this.props.viewArticleDetail(index, 'no');
+    const articleLink = this.props.reducer.contentList[index].articleLink;
+    this.props.actions.changeViewType('charter');
+    this.props.actions.setArticleLink(articleLink);
+    this.props.actions.getCharterList(articleLink, 'no');
   }
 
   render() {
     return (
-      <div className={`article-list-body article-list-for-${this.props.viewType}`}>
-        {this.props.data.map((item, i) =>
+      <div className={`article-list-body article-list-for-${this.props.reducer.viewType}`}>
+        {this.props.reducer.contentList.map((item, i) =>
           <div
             key={i}
             className={`article-item ${this.state.activeIndex === i ? 'active-item' : ''}`}
@@ -27,7 +30,7 @@ export default class ArticleList extends React.Component {
               alt={item.articleName}
               className="article-image"
             />
-            <p className="article-title" onClick={() => this.props.viewArticleDetail(i, 'yes')}>{item.articleName}</p>
+            <p className="article-title">{item.articleName}</p>
             <p className="article-author">作者：{item.authorName}</p>
             <p className="article-latest-charter">最新章节：{item.latestCharterName}</p>
             <p className="article-update-time">更新时间：20{item.updateTime}</p>

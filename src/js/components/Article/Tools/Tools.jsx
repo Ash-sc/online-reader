@@ -13,6 +13,14 @@ export default class Tools extends React.Component {
 
   setting(type) {
     this.setState({ currentSetting: this.state.currentSetting === type ? '' : type });
+    switch (type) {
+      case 'enlarge':
+      case 'reduce':
+        this.props.actions.changeToolSetting({ fullScreen: type === 'enlarge' });
+        break;
+      default:
+        break;
+    }
   }
 
   showOrHideSetting() {
@@ -57,13 +65,12 @@ export default class Tools extends React.Component {
         {this.state.currentStatus !== 'initial' &&
           <span
             onClick={() => this.setting('background')}
-            style={{ color: this.props.currentSetting.bgColor }}
+            style={{ color: this.props.reducer.toolSetting.bgColor }}
             className={`icon-square-rounded ${this.state.currentSetting === 'background' ? 'active-span' : ''}`}
           >
             <BgColorSetting
               className={this.state.currentSetting === 'background' ? 'show-bg-setting' : 'hide-bg-setting'}
-              currentColor={this.props.currentSetting.bgColor}
-              changeColor={color => this.props.changeSetting('bgColor', color)}
+              {...this.props}
             />
           </span>
         }
