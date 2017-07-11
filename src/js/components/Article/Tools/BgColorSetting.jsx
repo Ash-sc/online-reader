@@ -1,11 +1,6 @@
 import React from 'react';
 
 export default class BgColorSetting extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
     const colors = ['#eef8fd', '#cfdecb', '#ede4cc', '#181818', '#f4ddd1', '#eac1ce'];
     return (
@@ -13,9 +8,9 @@ export default class BgColorSetting extends React.Component {
         {colors.map((color, i) =>
           <span
             key={i}
-            className={`icon-square-rounded${this.props.currentColor === color ? ' active-span' : ''}`}
+            className={`icon-square-rounded${this.props.reducer.toolSetting.bgColor === color ? ' active-span' : ''}`}
             style={{ color }}
-            onClick={() => this.props.changeColor(color)}
+            onClick={() => this.props.actions.changeToolSetting({ bgColor: color })}
           />
         )}
       </div>

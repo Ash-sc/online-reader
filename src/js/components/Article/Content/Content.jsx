@@ -7,7 +7,7 @@ export default class ArticleList extends React.Component {
   }
 
   componentDidMount() {
-    this.refs['content-div'].innerHTML = this.props.data;
+    this.refs['content-div'].innerHTML = this.props.reducer.articleContent;
   }
 
   render() {
