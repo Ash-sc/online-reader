@@ -2,6 +2,7 @@
   display: inline-block;
   position: relative;
 
+  /* 输入框 */
   .input-section {
     display: inline-block;
     height: 36px;
@@ -10,7 +11,7 @@
     .start-time, .end-time {
       height: calc(100% - 2px);
       border: none;
-      width: calc(50% - 20px);
+      width: calc(50% - 22px);
       background: none;
       outline: none;
       text-align: center;
@@ -28,6 +29,7 @@
   }
 
 
+  /* 日历选择部分 */
   .date-section {
     user-select: none;
     display: none;
@@ -36,8 +38,9 @@
     width: 554px;
     left: 0;
     padding: 0 10px;
-    border: 1px solid #ccc;
     border-radius: 4px;
+    background-color: #2b313d;
+    color: #b4c0cb;
 
     &.date-section-show {
       display: inherit;
@@ -47,16 +50,19 @@
       margin-right: 20px;
     }
 
+    /* 两个月份展示 */
     .date-start-section, .date-end-section {
       width: 265px;
       border-radius: 4px;
       display: inline-block;
+      font-size: 14px;
 
+      /* 年、月选择部分 */
       .header-section {
         height: 30px;
-        background: #ccc;
-        margin: 20px 10px 0;
+        margin: 30px 10px 0;
         border-radius: 4px;
+        background-color: #373d49;
 
         .year-selector, .month-selector {
           width: 50%;
@@ -81,6 +87,7 @@
 
       }
 
+      /* 日期选择部分 */
       .calender-section {
         height: 210px;
         padding: 10px;
@@ -89,20 +96,29 @@
 
       .date-item, .date-weekday {
         display: inline-block;
-        width: 35px;
-        height: 30px;
+        width: 31px;
+        height: 26px;
         line-height: 30px;
         text-align: center;
         cursor: pointer;
-        border-radius: 4px;
+        border-radius: 6px;
+        font-size: 12px;
+        padding: 3px 2px;
+        background-clip: content-box;
       }
 
-      .date-item:not(.not-current-month):hover {
-        background: #ccc;
+      .date-item:not(.not-current-month):hover,
+      .date-item.start-or-end-selected {
+        background-color: #b4c0cb!important;
+        color: #000000;
+      }
+
+      .date-item.selected {
+        background-color: #4c576a;
+        color: #b4c0cb;
       }
 
       .date-item.not-current-month {
-        color: #ccc;
         visibility: hidden;
       }
 
