@@ -14,7 +14,7 @@ export default class DatePicker extends React.Component {
       showCalendar: false, // 是否显示日历
       startTime: '', // 默认开始时间
       endTime: '', // 默认结束时间
-      hoverTime: '', // 鼠标悬停的时间
+      hoverTime: '', // 鼠标悬停的日期
       isSelecting: '', //选择状态位：'', 'startTime', 'endTime'
     };
   }
