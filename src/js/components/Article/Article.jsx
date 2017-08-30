@@ -4,6 +4,7 @@ import ArticleList from './ArticleList/ArticleList';
 import CharterList from './CharterList/CharterList';
 import Content from './Content/Content';
 import Tools from './Tools/Tools';
+import DatePicker from 'components/_shared/datepicker/';
 
 export default class Article extends React.Component {
   render() {
@@ -25,6 +26,7 @@ export default class Article extends React.Component {
             <Tools {...this.props} />
           }
         </div>
+        <DatePicker />
       </div>
     );
   }

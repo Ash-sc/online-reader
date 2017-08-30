@@ -1,0 +1,113 @@
+.date-picker-body {
+  display: inline-block;
+  position: relative;
+
+  .input-section {
+    display: inline-block;
+    height: 36px;
+    border: 1px solid #505466;
+
+    .start-time, .end-time {
+      height: calc(100% - 2px);
+      border: none;
+      width: calc(50% - 20px);
+      background: none;
+      outline: none;
+      text-align: center;
+    }
+
+    .clip-span {
+      width: 40px;
+      height: 100%;
+      text-align: center;
+      display: inline-block;
+      line-height: 36px;
+      vertical-align: top;
+    }
+
+  }
+
+
+  .date-section {
+    user-select: none;
+    display: none;
+    position: absolute;
+    top: 50px;
+    width: 554px;
+    left: 0;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    &.date-section-show {
+      display: inherit;
+    }
+
+    .date-start-section {
+      margin-right: 20px;
+    }
+
+    .date-start-section, .date-end-section {
+      width: 265px;
+      border-radius: 4px;
+      display: inline-block;
+
+      .header-section {
+        height: 30px;
+        background: #ccc;
+        margin: 20px 10px 0;
+        border-radius: 4px;
+
+        .year-selector, .month-selector {
+          width: 50%;
+          height: 30px;
+          line-height: 30px;
+          display: inline-block;
+          text-align: center;
+
+          .current, .prev, .next {
+            cursor: pointer;
+          }
+
+          .prev {
+            margin-right: 5px;
+          }
+
+          .next {
+            margin-left: 5px;
+          }
+
+        }
+
+      }
+
+      .calender-section {
+        height: 210px;
+        padding: 10px;
+        margin-top: 10px;
+      }
+
+      .date-item, .date-weekday {
+        display: inline-block;
+        width: 35px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .date-item:not(.not-current-month):hover {
+        background: #ccc;
+      }
+
+      .date-item.not-current-month {
+        color: #ccc;
+        visibility: hidden;
+      }
+
+    }
+
+  }
+
+}
