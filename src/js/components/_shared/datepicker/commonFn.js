@@ -12,4 +12,12 @@ export default class CommonFn {
     return dates;
   }
 
+  static ym(date) {
+    return moment(date).format('YYYY-MM');
+  }
+
+  static ymd(date) {
+    return moment(date).format('YYYY-MM-DD');
+  }
+
 }

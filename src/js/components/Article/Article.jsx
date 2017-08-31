@@ -7,7 +7,17 @@ import Tools from './Tools/Tools';
 import DatePicker from 'components/_shared/datepicker/';
 
 export default class Article extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      startDate: '2017-08-01',
+      endDate: '2018-01-06',
+    };
+  }
+
   render() {
+    const { startDate, endDate } = this.state;
     return (
       <div
         className="article-body"
@@ -26,7 +36,15 @@ export default class Article extends React.Component {
             <Tools {...this.props} />
           }
         </div>
-        <DatePicker />
+        <span>开始时间：{startDate}</span>
+        <br />
+        <span>结束时间：{endDate}</span>
+        <DatePicker
+          startDate={startDate}
+          endDate={endDate}
+          changeStartDate={date => this.setState({ startDate: date })}
+          changeEndDate={date => this.setState({ endDate: date })}
+        />
       </div>
     );
   }
