@@ -66,6 +66,7 @@
     "cheerio": "^1.0.0-rc.2",
     "compression": "^1.6.2",
     "cookie-parser": "1.4.3",
+    "date-range-for-react": "^1.0.5",
     "easymysql": "0.2.7",
     "electron": "^1.6.10",
     "es6-promise": "^4.1.0",

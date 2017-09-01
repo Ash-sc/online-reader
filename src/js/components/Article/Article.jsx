@@ -4,15 +4,15 @@ import ArticleList from './ArticleList/ArticleList';
 import CharterList from './CharterList/CharterList';
 import Content from './Content/Content';
 import Tools from './Tools/Tools';
-import DatePicker from 'components/_shared/datepicker/';
+import DatePicker from 'date-range-for-react';
 
 export default class Article extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      startDate: '2017-08-01',
-      endDate: '2018-01-06',
+      startDate: '',
+      endDate: '',
     };
   }
 

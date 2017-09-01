@@ -33,9 +33,8 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(woff|woff2|eot|ttf|svg)$/,
-        loader: 'file-loader?name=fonts/[name].[ext]',
-        exclude: /node_modules/,
+        test: /\.(woff|woff2|eot|ttf|svg)(\?\S*)?$/,
+        loader: 'url?limit=100000&font/name=[name].[ext]',
       },
       {
         test: /\.ico$/,
