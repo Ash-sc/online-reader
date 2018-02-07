@@ -4,6 +4,7 @@ import ArticleList from './ArticleList/ArticleList';
 import CharterList from './CharterList/CharterList';
 import Content from './Content/Content';
 import Tools from './Tools/Tools';
+import Loading from 'components/_shared/Loading/Loading';
 
 export default class Article extends React.Component {
   render() {
@@ -24,6 +25,7 @@ export default class Article extends React.Component {
           {this.props.reducer.viewType === 'content' &&
             <Tools {...this.props} />
           }
+          {this.props.reducer.status === 'loading' && <Loading />}
         </div>
       </div>
     );
