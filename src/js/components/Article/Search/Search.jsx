@@ -24,7 +24,7 @@ export default class Search extends React.Component {
     return (
       <form
         onSubmit={e => this.handleSubmit(e)}
-        className={viewType === 'content' && toolSetting.fullScreen && 'full-screen-content'}
+        className={`search-form-${viewType} ${viewType === 'content' && toolSetting.fullScreen && 'full-screen-content'}`}
       >
         <input
           className={`search-component search-component-for-${viewType}`}

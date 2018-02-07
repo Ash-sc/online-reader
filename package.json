@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "webpack --config ./.webpack/config/production.js",
+    "build": "rimraf public/* && webpack --config ./.webpack/config/production.js",
     "dev": "node ./webpack-dev-server.js",
     "pack": "electron-packager ./public ashshen --platfrom=all",
     "pack-mac": "electron-packager ./public ashshen --platfrom=darwin",

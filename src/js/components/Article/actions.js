@@ -14,6 +14,7 @@ import {
   CHANGE_VIEW_TYPE,
   CHANGE_TOOL_SETTING,
   SET_ARTICLE_LINK,
+  SET_CHARTER_LINK,
 } from 'constants/articleConstants';
 import articleApi from 'utils/api/articleApi';
 
@@ -71,5 +72,11 @@ export function setArticleLink(articleLink) {
   return {
     type: SET_ARTICLE_LINK,
     articleLink,
+  };
+}
+export function setCharterLink(charterLink) {
+  return {
+    type: SET_CHARTER_LINK,
+    charterLink,
   };
 }

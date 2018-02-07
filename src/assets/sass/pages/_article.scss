@@ -45,6 +45,44 @@
 
     }
 
+    @media screen and (max-width: 600px) {
+      .search-component {
+        margin: 15px;
+        width: calc(100% - 80px);
+
+        &.search-component-for-charter {
+          margin: 15px;
+          width: calc(100% - 80px);
+        }
+
+        &.search-component-for-content {
+          display: none;
+        }
+      }
+
+      .search-form-content .search-btn {
+        position: fixed;
+        left: 0;
+        top: 0;
+        font-size: 14px;
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        padding: 0;
+        z-index: 1024;
+      }
+
+      .search-form-charter, .search-form-article {
+        position: relative;
+
+        .search-btn {
+          position: absolute;
+          right: 15px;
+          top: 15px;
+        }
+      }
+    }
+
     .search-btn {
       position: relative;
       top: 2px;
@@ -143,6 +181,18 @@
 
   }
 
+  @media screen and (max-width: 600px) {
+    .article-list-body {
+      width: 100%;
+      margin: 15px 0 0 0;
+
+      &.article-list-for-charter, &.article-list-for-content {
+        width: 100%;
+        transform: translate(-100%, 0);
+      }
+    }
+  }
+
   // 章节列表
   .charter-list-body {
     width: calc(60vw - 30px);
@@ -211,6 +261,24 @@
 
   }
 
+  @media screen and (max-width: 600px) {
+    .charter-list-body {
+      left: 0;
+      width: 100%;
+      margin: 15px 0 0 0;
+      padding-top: 0;
+      min-height: 0;
+
+      .charter-item {
+        width: calc(50% - 45px);
+      }
+
+      &.charter-list-for-content {
+        transform: translate(-100%, 0)
+      }
+    }
+  }
+
   .article-content-body {
     animation: show .5s linear both;
 
@@ -229,6 +297,13 @@
       &.full-screen-content {
         margin: 30px;
       }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .article-content-body .article-content {
+      margin: 0;
+      border: none;
     }
   }
 
@@ -326,6 +401,12 @@
 
     > span:hover {
       background-color: #36bbff;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .tools-body {
+      display: none;
     }
   }
 
