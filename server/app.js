@@ -15,7 +15,7 @@ const articleRouter = require('./article/article');
 app.use(compression());
 
 // server static files
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
