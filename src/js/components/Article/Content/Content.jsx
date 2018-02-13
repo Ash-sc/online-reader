@@ -1,4 +1,5 @@
 import React from 'react';
+import findIndex from 'lodash/findIndex';
 
 export default class ArticleList extends React.Component {
   constructor(props) {
@@ -7,7 +8,18 @@ export default class ArticleList extends React.Component {
   }
 
   componentDidMount() {
-    this.refs['content-div'].innerHTML = this.props.reducer.articleContent;
+    this.refs['content-span'].innerHTML = this.props.reducer.articleContent;
+  }
+
+  changeCharter(type) {
+    const { charterList, charterLink } = this.props.reducer;
+    const index = findIndex(charterList, { href: charterLink });
+    if ((type === 'prev' && index !== 0) || (type === 'next' && index !== charterList.length - 1)) {
+      const href = charterList[index + (type === 'prev' ? -1 : 1)].href;
+      this.props.actions.getArticleContent(`${this.props.reducer.articleLink}${href}`);
+      this.props.actions.setCharterLink(href);
+      document.documentElement.scrollTop = document.body.scrollTop = -200;
+    }
   }
 
   render() {
@@ -15,9 +27,14 @@ export default class ArticleList extends React.Component {
     return (
       <div className="article-content-body">
         <div
-          ref="content-div"
           className={`article-content${toolSetting.fullScreen ? ' full-screen-content' : ''}`}
-        />
+        >
+          <span ref="content-span" />
+          <div className="operator">
+            <div className="operator-btn" onClick={() => this.changeCharter('prev')}>&lt;&lt;上一章</div>
+            <div className="operator-btn" onClick={() => this.changeCharter('next')}>下一章&gt;&gt;</div>
+          </div>
+        </div>
       </div>
     );
   }

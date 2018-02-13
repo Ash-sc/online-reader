@@ -298,12 +298,39 @@
         margin: 30px;
       }
     }
+
+    .operator {
+      .operator-btn {
+        display: inline-block;
+        height: 40px;
+        width: 100px;
+        line-height: 40px;
+        text-indent: 15px;
+        margin: 15px;
+        padding-right: 15px;
+        background-color: #8eceee;
+        color: #ffffff;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-break: break-all;
+        animation: show .3s linear both;
+        cursor: pointer;
+      }
+    }
   }
 
   @media screen and (max-width: 600px) {
-    .article-content-body .article-content {
-      margin: 0;
-      border: none;
+    .article-content-body {
+      .article-content {
+        margin: 0;
+        border: none;
+        padding-top: 40px;
+      }
+
+      .operator {
+        text-align: center;
+      }
     }
   }
 
