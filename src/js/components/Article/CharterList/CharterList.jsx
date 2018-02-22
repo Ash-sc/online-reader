@@ -26,7 +26,7 @@ export default class CharterList extends React.Component {
   scrollChartList(charterList, charterLink) {
     const index = findIndex(charterList, { href: charterLink });
 
-    if (index >= 0) this.refs.charterList.scrollTop = 15 + (index * 55);
+    if (index >= 0) this.refs.charterList.scrollTop = 15 + (index * 60);
   }
 
   viewContent(href) {

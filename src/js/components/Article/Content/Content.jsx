@@ -22,6 +22,15 @@ export default class ArticleList extends React.Component {
     }
   }
 
+  scrollContent(e) {
+    const windowHeight = document.documentElement.clientHeight;
+    const windowWidth = document.documentElement.clientWidth;
+
+    if (windowWidth > 600) return false;
+
+    return document.documentElement.scrollTop += e.pageX > windowWidth / 2 ? (windowHeight - 20) : (20 - windowHeight);
+  }
+
   render() {
     const { toolSetting } = this.props.reducer;
     return (
@@ -29,7 +38,7 @@ export default class ArticleList extends React.Component {
         <div
           className={`article-content${toolSetting.fullScreen ? ' full-screen-content' : ''}`}
         >
-          <span ref="content-span" />
+          <div ref="content-span" onClick={this.scrollContent}></div>
           <div className="operator">
             <div className="operator-btn" onClick={() => this.changeCharter('prev')}>&lt;&lt;上一章</div>
             <div className="operator-btn" onClick={() => this.changeCharter('next')}>下一章&gt;&gt;</div>

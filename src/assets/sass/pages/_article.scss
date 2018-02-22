@@ -268,9 +268,15 @@
       margin: 15px 0 0 0;
       padding-top: 0;
       min-height: 0;
+      font-size: 0;
 
       .charter-item {
-        width: calc(50% - 45px);
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        color: #252525;
+        background-color: #c5c4c4;
+        font-size: 1rem;
       }
 
       &.charter-list-for-content {
@@ -326,10 +332,19 @@
         margin: 0;
         border: none;
         padding-top: 40px;
+        background-color: #c5e2c6;
+        color: #333;
+        user-select: none;
       }
 
       .operator {
         text-align: center;
+
+        .operator-btn {
+          background-color: #c5c5c5;
+          color: #333;
+          margin-bottom: 0;
+        }
       }
     }
   }
