@@ -268,7 +268,7 @@
       margin: 15px 0 0 0;
       padding-top: 0;
       min-height: 0;
-      font-size: 0;
+      font-size: 1px;
 
       .charter-item {
         width: 100%;
@@ -277,6 +277,15 @@
         color: #252525;
         background-color: #c5c4c4;
         font-size: 1rem;
+
+        &.charter-item-active {
+          background-color: #c5c4c4;
+        }
+
+      }
+
+      .charter-item:hover {
+        background-color: #c5c4c4;
       }
 
       &.charter-list-for-content {

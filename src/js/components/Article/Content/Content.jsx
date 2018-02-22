@@ -28,7 +28,12 @@ export default class ArticleList extends React.Component {
 
     if (windowWidth > 600) return false;
 
-    return document.documentElement.scrollTop += e.pageX > windowWidth / 2 ? (windowHeight - 20) : (20 - windowHeight);
+    const add = e.pageX > windowWidth / 2 ? (windowHeight - 20) : (20 - windowHeight);
+
+    document.documentElement.scrollTop += add;
+    document.body.scrollTop += add;
+
+    return true;
   }
 
   render() {
