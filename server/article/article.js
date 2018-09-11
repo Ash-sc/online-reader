@@ -11,10 +11,12 @@ const request = require('superagent');
 const fs = require('fs');
 const urlencode = require('urlencode');
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+
 charset(request);
 const opts = {
   logFilePath: `logs/article-log-${moment().format('YYYY-MM-DD')}.log`,
-  timestampFormat:'YYYY-MM-DD HH:mm:ss'
+  timestampFormat: 'YYYY-MM-DD HH:mm:ss',
 };
 const log = SimpleNodeLogger.createSimpleLogger(opts);
 
@@ -30,10 +32,10 @@ const getContent = (index, charterList, articleUrl, articleName) => {
         log.info(`get charter ${charterList[index].title} success !`);
         const $ = cheerio.load(resp.text);
         const content = charterList[index].title + '\n' + unescape($($('#BookText')[0]).html()
-            .replace(/&#x/g,'%u')
-            .replace(/;/g,'')
-            .replace(/%uA0/g,' ')
-            .replace(/&apos/g,'')
+            .replace(/&#x/g, '%u')
+            .replace(/;/g, '')
+            .replace(/%uA0/g, ' ')
+            .replace(/&apos/g, '')
             .replace(/<br>/g, '\n'))
             .replace(/%[0-9a-zA-Z]+/g, ''); // 内容处理
         fs.appendFile(`${__dirname}/${articleName}.txt`, content, () => {
@@ -43,7 +45,7 @@ const getContent = (index, charterList, articleUrl, articleName) => {
           }
         });
       }
-    })
+    });
 };
 
 // 搜索文章
@@ -101,13 +103,13 @@ router.get('/getCharterList', (req, res) => {
           });
         } else {
           const $ = cheerio.load(resp.text);
-          const item = []; //章节信息列表
+          const item = []; // 章节信息列表
           const articleName = $($('.infotitle h1')[0]).text();
-          $('#list dl dd a').each(function (idx, element) {
+          $('#list dl dd a').each((idx, element) => {
             const $element = $(element);
             item.push({
               title: $element.attr('title'),
-              href: $element.attr('href')
+              href: $element.attr('href'),
             });
           });
           log.info('get charter list success !');
@@ -144,13 +146,13 @@ router.get('/getCharterContent', (req, res) => {
             error,
           });
         } else {
-          log.info(`get charter content success !`);
+          log.info('get charter content success !');
           const $ = cheerio.load(resp.text);
           const content = unescape($($('#BookText')[0]).html()
-              .replace(/&#x/g,'%u')
-              .replace(/;/g,'')
-              .replace(/%uA0/g,' ')
-              .replace(/&apos/g,''))
+              .replace(/&#x/g, '%u')
+              .replace(/;/g, '')
+              .replace(/%uA0/g, ' ')
+              .replace(/&apos/g, ''))
               .replace(/%[0-9a-zA-Z]+/g, ''); // 内容处理
           res.status(200);
           res.send({
