@@ -2,7 +2,6 @@
  * Created by ash on 22/05/2017.
  */
 const express = require('express');
-const router = express.Router();
 const SimpleNodeLogger = require('simple-node-logger');
 const moment = require('moment');
 const cheerio = require('cheerio');
@@ -11,10 +10,16 @@ const request = require('superagent');
 const fs = require('fs');
 const urlencode = require('urlencode');
 
+/* eslint-disable */
+const router = express.Router();
+/* eslint-enable */
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+
 charset(request);
 const opts = {
   logFilePath: `logs/article-log-${moment().format('YYYY-MM-DD')}.log`,
-  timestampFormat:'YYYY-MM-DD HH:mm:ss'
+  timestampFormat: 'YYYY-MM-DD HH:mm:ss',
 };
 const log = SimpleNodeLogger.createSimpleLogger(opts);
 
@@ -29,13 +34,13 @@ const getContent = (index, charterList, articleUrl, articleName) => {
       } else {
         log.info(`get charter ${charterList[index].title} success !`);
         const $ = cheerio.load(resp.text);
-        const content = charterList[index].title + '\n' + unescape($($('#BookText')[0]).html()
-            .replace(/&#x/g,'%u')
-            .replace(/;/g,'')
-            .replace(/%uA0/g,' ')
-            .replace(/&apos/g,'')
+        const content = `${charterList[index].title}\n${unescape($($('#BookText')[0]).html()
+            .replace(/&#x/g, '%u')
+            .replace(/;/g, '')
+            .replace(/%uA0/g, ' ')
+            .replace(/&apos/g, '')
             .replace(/<br>/g, '\n'))
-            .replace(/%[0-9a-zA-Z]+/g, ''); // 内容处理
+            .replace(/%[0-9a-zA-Z]+/g, '')}`; // 内容处理
         fs.appendFile(`${__dirname}/${articleName}.txt`, content, () => {
           log.info(`write charter ${charterList[index].title} success !`);
           if (index < charterList.length - 1) {
@@ -43,7 +48,7 @@ const getContent = (index, charterList, articleUrl, articleName) => {
           }
         });
       }
-    })
+    });
 };
 
 // 搜索文章
@@ -101,19 +106,19 @@ router.get('/getCharterList', (req, res) => {
           });
         } else {
           const $ = cheerio.load(resp.text);
-          const item = []; //章节信息列表
+          const item = []; // 章节信息列表
           const articleName = $($('.infotitle h1')[0]).text();
-          $('#list dl dd a').each(function (idx, element) {
+          $('#list dl dd a').each((idx, element) => {
             const $element = $(element);
             item.push({
               title: $element.attr('title'),
-              href: $element.attr('href')
+              href: $element.attr('href'),
             });
           });
           log.info('get charter list success !');
           if (req.query.download === 'yes') {
             log.info('start downloading article ...');
-            getContent(0, item, articleUrl, articleName);
+            getContent(631, item, articleUrl, articleName);
           }
           res.status(200);
           res.send({
@@ -144,13 +149,13 @@ router.get('/getCharterContent', (req, res) => {
             error,
           });
         } else {
-          log.info(`get charter content success !`);
+          log.info('get charter content success !');
           const $ = cheerio.load(resp.text);
           const content = unescape($($('#BookText')[0]).html()
-              .replace(/&#x/g,'%u')
-              .replace(/;/g,'')
-              .replace(/%uA0/g,' ')
-              .replace(/&apos/g,''))
+              .replace(/&#x/g, '%u')
+              .replace(/;/g, '')
+              .replace(/%uA0/g, ' ')
+              .replace(/&apos/g, ''))
               .replace(/%[0-9a-zA-Z]+/g, ''); // 内容处理
           res.status(200);
           res.send({

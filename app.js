@@ -4,6 +4,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const http = require('http');
+
 const app = express();
 const path = require('path');
 const compression = require('compression');
@@ -19,13 +20,15 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: false
+  extended: false,
 }));
 app.use(cookieParser());
 
 // set json header
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   res.contentType('application/json');
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
@@ -34,7 +37,7 @@ app.use('/api/article', articleRouter);
 app.use('/article', articleRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   console.log(JSON.stringify(req.cookies));
   const err = new Error('Not Found');
   err.status = 404;
@@ -42,30 +45,30 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-process.on('uncaughtException', function(e) {
+process.on('uncaughtException', (e) => {
   console.error('node server uncaughtException:', e);
 });
 
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    console.error('uncatch error:' + err);
+  app.use((err, req, res) => {
+    console.error(`uncatch error:${err}`);
     res.status(err.status || 500).send({
       errorInfo: err.message,
-      result: 1
+      result: 1,
     });
   });
 }
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  console.error('uncatch error:' + err);
+app.use((err, req, res) => {
+  console.error(`uncatch error:${err}`);
   res.status(err.status || 500);
   res.send({
     errorInfo: err.message,
-    result: 1
+    result: 1,
   });
 });
 
