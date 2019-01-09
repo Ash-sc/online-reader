@@ -15,7 +15,6 @@ require('isomorphic-fetch');
 // load images and fonts
 function requireAll(r) { r.keys().forEach(r); }
 requireAll(require.context('assets/fonts/', true));
-requireAll(require.context('assets/images/', true));
 
 const store = configureStore();
 

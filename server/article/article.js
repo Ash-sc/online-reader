@@ -115,7 +115,7 @@ router.get('/getCharterList', (req, res) => {
           log.info('get charter list success !');
           if (req.query.download === 'yes') {
             log.info('start downloading article ...');
-            getContent(0, item, articleUrl, articleName);
+            getContent(631, item, articleUrl, articleName);
           }
           res.status(200);
           res.send({
