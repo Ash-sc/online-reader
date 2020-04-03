@@ -8,7 +8,7 @@
 ````
     $ npm installl
     $ npm run build
-    $ node ./app.js
+    $ node .server/online-reader-app.js
 ````
 浏览器输入：http://localhost:4396 查看
     
