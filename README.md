@@ -1,7 +1,6 @@
 # 在线小说阅读
 在线小说阅读器，前端使用React框架，后端使用Node.js(爬取http://www.snwx8.com/ 的小说内容)。    
 
-[示例地址](http://ashshen.cc:4396/#/article)。
     
 ### 运行方式:
     
